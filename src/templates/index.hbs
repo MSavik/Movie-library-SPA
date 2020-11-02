@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Library</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Main page </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/addMovie">Add movie <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/modifyMovie">Modify movie <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr>
+    <h1>Filters</h1>
+    <section id="filter-section">
+        <div class="filter-section-left">
+            <span class="filter">
+                <label for="title">Title: </label>
+            <select id="title">
+                <option value="null">--Select Title--</option>
+                {{#each title}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="genre">Genre: </label>
+            <select id="genre">
+                <option value="null">--Select Genre--</option>
+                {{#each genre}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="yearOfRelease">Year of release: </label>
+            <select id="yearOfRelease">
+                <option value="null">--Select Year--</option>
+                {{#each yearOfRelease}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="starring">Starring: </label>
+            <select id="starring">
+                <option value="null">--Select Actor--</option>
+                {{#each starring}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="directedBy">Directed By: </label>
+            <select id="directedBy">
+                <option value="null">--Select Director--</option>
+                {{#each directedBy}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+        </div>
+        <div class="filter-section-right">
+            <span class="filter">
+                <label for="producedBy">Produced By: </label>
+            <select id="producedBy">
+                <option value="null">--Select Producer--</option>
+                {{#each producedBy}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="writtenBy">Written By: </label>
+            <select id="writtenBy">
+                <option value="null">--Select Writer--</option>
+                {{#each writtenBy}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="productionCompany">Production Company: </label>
+            <select id="productionCompany">
+                <option value="null">--Select Production Company--</option>
+                {{#each productionCompany}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="country">Country: </label>
+            <select id="country">
+                <option value="null">--Select Country--</option>
+                {{#each country}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+            <span class="filter">
+                <label for="language">Language: </label>
+            <select id="language">
+                <option value="null">--Select Language--</option>
+                {{#each language}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            </span>
+        </div>
+    </section>
+    <h1>Movies</h1>
+    <section class="movie-data-section">
+    {{#if moviesData}}
+        {{#each moviesData}}
+            <div class="bg-primary movie-data-headers">
+                <div class="row">
+                    <div class="col-md-4">Movie</div>
+                    <div class="col-md-4">Cast & Crew</div>
+                    <div class="col-md-4">Additional info</div>
+                </div>
+            </div>
+            <div class="bg-warning movie-data-details">
+                <div class="row movie-info">
+                    <div class="col-md-2 movie">
+                        <p><span class="bold">Title: </span> {{this.title}}</p>
+                        <p><span class="bold">Genre: </span>{{this.genre}}</p>
+                        <p><span class="bold">Running time: </span>{{this.runningTime}} min</p>
+                        <p><span class="bold">Year of release: </span>{{this.yearOfRelease}}</p>
+                    </div>
+                    <div class="col-md-5 cast-and-crew">
+                        <p><span class="bold">Starring: </span>{{#each this.starring}}<span>{{this}}, </span>{{/each}} </p>
+                        <p><span class="bold">Directed by: </span>{{#each this.directedBy}}<span>{{this}}, </span>{{/each}}</p>
+                        <p><span class="bold">Produced by: </span>{{#each this.producedBy}}<span>{{this}}, </span>{{/each}}</p>
+                        <p><span class="bold">Written by: </span>{{#each this.writtenBy}}<span>{{this}}, </span>{{/each}}</p>
+                    </div>
+                    <div class="col-md-5 additional-info">
+                        <p><span class="bold">Production company: </span>{{#each this.productionCompany}}<span>{{this}}, </span>{{/each}} </p>
+                        <p><span class="bold">Country: </span>{{#each this.country}}<span>{{this}}, </span>{{/each}}</p>
+                        <p><span class="bold">Language: </span>{{this.language}}</p>
+                        <p><span class="bold">Budget: </span>{{this.budget}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
+    </section>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        let movieData = document.querySelector(".movie-data-section");
+        function displayMovieData(list) {
+            movieData.innerHTML = "";
+            let html = "";
+            for (let item of list) {
+                html += `
+                    <div class="bg-primary movie-data-headers">
+                        <div class="row">
+                            <div class="col-md-4">Movie</div>
+                            <div class="col-md-4">Cast & Crew</div>
+                            <div class="col-md-4">Additional info</div>
+                        </div>
+                    </div>`;
+                html += `<div class="bg-warning">
+                        <div class="row">`;
+
+                html += `<div class="bg-warning movie-data-details">
+                        <div class="row movie-info">
+                            <div class="col-md-2 movie">
+                                <p><span class="bold">Title:</span> ${item.title}</p>
+                                <p><span class="bold">Genre: </span>${item.genre}</p>
+                                <p><span class="bold">Running time: </span>${item.runningTime} min</p>
+                                <p><span class="bold">Year of release: </span>${item.yearOfRelease}</p>
+                            </div>
+                            <div class="col-md-5 cast-and-crew">
+                                <p><span class="bold">Starring: </span>`;for(let el of item.starring){html+=`<span>${el}, </span>`} html+=`</p>
+                                <p><span class="bold">Directed by: </span>`;for(let el of item.directedBy){html+=`<span>${el}, </span>`} html+=`</p>
+                                <p><span class="bold">Produced by: </span>`;for(let el of item.producedBy){html+=`<span>${el}, </span>`} html+=`</p>
+                                <p><span class="bold">Written by: </span>`;for(let el of item.writtenBy){html+=`<span>${el}, </span>`} html+=`</p>
+                            </div>
+                            <div class="col-md-5 additional-info">
+                                <p><span class="bold">Production company: </span>`;for(let el of item.productionCompany){html+=`<span>${el}, </span>`} html+=` </p>
+                                <p><span class="bold">Country: </span>`;for(let el of item.country){html+=`<span>${el}, </span>`} html+=`</p>
+                                <p><span class="bold">Language: </span>${item.language}</p>
+                                <p><span class="bold">Budget: </span>${item.budget}</p>
+                            </div>
+                        </div>
+                        </div>`;
+
+                html += `</div>
+                    </div>`;
+            }
+            movieData.innerHTML = html;
+        }
+        document.querySelector("#title").onchange = function() {
+            let element = document.querySelector("#title");
+            $.ajax({
+                url: "/api/filterTitle",
+                method: "POST",
+                data: {
+                    "title": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#title').prop('selectedIndex', 0);
+        }
+        document.querySelector("#genre").onchange = function() {
+            let element = document.querySelector("#genre");
+            $.ajax({
+                url: "/api/filterGenre",
+                method: "POST",
+                data: {
+                    "genre": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#genre').prop('selectedIndex', 0);
+        }
+        document.querySelector("#yearOfRelease").onchange = function() {
+            let element = document.querySelector("#yearOfRelease");
+            $.ajax({
+                url: "/api/filterYearOfRelease",
+                method: "POST",
+                data: {
+                    "yearOfRelease": element.value
+                },
+                success: function(response) {
+                    let moviesList=JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#yearOfRelease').prop('selectedIndex', 0);
+        }
+        document.querySelector("#starring").onchange = function() {
+            let element = document.querySelector("#starring");
+            $.ajax({
+                url: "/api/filterStarring",
+                method: "POST",
+                data: {
+                    "starring": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#starring').prop('selectedIndex', 0);
+        }
+        document.querySelector("#directedBy").onchange = function() {
+            let element = document.querySelector("#directedBy");
+            $.ajax({
+                url: "/api/filterDirectedBy",
+                method: "POST",
+                data: {
+                    "directedBy": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#directedBy').prop('selectedIndex', 0);
+        }
+        document.querySelector("#producedBy").onchange = function() {
+            let element = document.querySelector("#producedBy");
+            $.ajax({
+                url: "/api/filterProducedBy",
+                method: "POST",
+                data: {
+                    "producedBy": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#producedBy').prop('selectedIndex', 0);
+        }
+        document.querySelector("#writtenBy").onchange = function() {
+            let element = document.querySelector("#writtenBy");
+            $.ajax({
+                url: "/api/filterWrittenBy",
+                method: "POST",
+                data: {
+                    "writtenBy": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#writtenBy').prop('selectedIndex', 0);
+        }
+        document.querySelector("#productionCompany").onchange = function() {
+            let element = document.querySelector("#productionCompany");
+            $.ajax({
+                url: "/api/filterProductionCompany",
+                method: "POST",
+                data: {
+                    "productionCompany": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#productionCompany').prop('selectedIndex', 0);
+        }
+        document.querySelector("#country").onchange = function() {
+            let element = document.querySelector("#country");
+            $.ajax({
+                url: "/api/filterCountry",
+                method: "POST",
+                data: {
+                    "country": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#country').prop('selectedIndex', 0);
+        }
+        document.querySelector("#language").onchange = function() {
+            let element = document.querySelector("#language");
+            $.ajax({
+                url: "/api/filterLanguage",
+                method: "POST",
+                data: {
+                    "language": element.value
+                },
+                success: function(response) {
+                    let moviesList = JSON.parse(response);
+                    displayMovieData(moviesList);
+                }
+            });
+            $('select').not('#language').prop('selectedIndex', 0);
+        }
+    </script>
+
+</body>
+</html>

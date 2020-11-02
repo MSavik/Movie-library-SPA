@@ -1,0 +1,240 @@
+[
+  {
+    "title": "Avengers: Endgame",
+    "genre": "Action",
+    "runningTime": 181,
+    "starring": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Mark Ruffalo",
+      "Chris Hemsworth",
+      "Scarlett Johansson",
+      "Jeremy Renner",
+      "Don Cheadle",
+      "Paul Rudd",
+      "Brie Larson",
+      "Karen Gillian",
+      "Danai Gurira",
+      "Benedict Wong",
+      "Jon Favreau",
+      "Bradley Cooper",
+      "Gwyneth Paltrow",
+      "Josh Brolin"
+    ],
+    "directedBy": [
+      "Anthony Russo",
+      "Joe Russo"
+    ],
+    "producedBy": [
+      "Kevin Feige"
+    ],
+    "writtenBy": [
+      "Christopher Markus",
+      "Stephen McFeely"
+    ],
+    "productionCompany": [
+      "Marvel Studios"
+    ],
+    "country": [
+      "United States"
+    ],
+    "language": "English",
+    "yearOfRelease": 2019,
+    "budget": "$356 million"
+  },
+  {
+    "title": "Joker",
+    "genre": "Drama",
+    "runningTime": 122,
+    "starring": [
+      "Joaquin Phoenix",
+      "Robert De Niro",
+      "Zazie Beetz",
+      "Frances Conroy"
+    ],
+    "directedBy": [
+      "Todd Phillips"
+    ],
+    "producedBy": [
+      "Todd Phillips",
+      "Bradley Cooper",
+      "Emma Tillinger Koskoff"
+    ],
+    "writtenBy": [
+      "Todd Phillips",
+      "Scott Silver"
+    ],
+    "productionCompany": [
+      "Warner Bros. Pictures",
+      "DC Films",
+      "Joint Effort",
+      "Bron Creative",
+      "Village Roadshow Pictures"
+    ],
+    "country": [
+      "United States"
+    ],
+    "language": "English",
+    "yearOfRelease": 2019,
+    "budget": "$55-70 million"
+  },
+  {
+    "title": "1917",
+    "genre": "Action",
+    "runningTime": 119,
+    "starring": [
+      "George MacKay",
+      "Dean-Charles Chapman",
+      "Mark Strong",
+      "Andrew Scott",
+      "Richard Madden",
+      "Claire Duburcq",
+      "Colin Firth",
+      "Benedict Cumberbatch"
+    ],
+    "directedBy": [
+      "Sam Mendes"
+    ],
+    "producedBy": [
+      "Sam Mendes",
+      "Pippa Harris",
+      "Jayne-Ann Tenggren",
+      "Callum McDougall",
+      "Brian Oliver"
+    ],
+    "writtenBy": [
+      "Sam Mendes",
+      "Krysty Wilson-Cairns"
+    ],
+    "productionCompany": [
+      "DreamWorks Pictures",
+      "Reliance Entertainment",
+      "New Republic Pictures",
+      "Mogambo",
+      "New Street Productions",
+      "Amblin Partners"
+    ],
+    "country": [
+      "United States",
+      "United Kingdom"
+    ],
+    "language": "English",
+    "yearOfRelease": 2019,
+    "budget": "$90-100 million"
+  },
+  {
+    "title": "It Chapter Two",
+    "genre": "Horror",
+    "runningTime": 169,
+    "starring": [
+      "Jessica Chastain",
+      "James McAvoy",
+      "Bill Hader",
+      "Isaiah Mustafa",
+      "Jay Ryan",
+      "James Ransone",
+      "Andy Bean",
+      "Bill Skarsgard"
+    ],
+    "directedBy": [
+      "Andy Muschietti"
+    ],
+    "producedBy": [
+      "Barbara Muschietti",
+      "Dan Lin",
+      "Roy Lee"
+    ],
+    "writtenBy": [
+      "Stephen King",
+      "Gary Dauberman"
+    ],
+    "productionCompany": [
+      "New Line Cinema",
+      "Double Dream",
+      "Vertigo Entertainment",
+      "Rideback"
+    ],
+    "country": [
+      "United States"
+    ],
+    "language": "English",
+    "yearOfRelease": 2019,
+    "budget": "$79 million"
+  },
+  {
+    "title": "Uncut Gems",
+    "genre": "Dark Humor",
+    "runningTime": 135,
+    "starring": [
+      "Adam Sandler",
+      "Lakeith Stanfield",
+      "Julia Fox",
+      "Kevin Garnett",
+      "Idina Menzel",
+      "Eric Bogosian"
+    ],
+    "directedBy": [
+      "Josh Safdie",
+      "Benny Safdie"
+    ],
+    "producedBy": [
+      "Scott Rudin",
+      "Eli Bush",
+      "Sebastian Bear-McClard"
+    ],
+    "writtenBy": [
+      "Ronald Bronstein",
+      "Josh Safdie",
+      "Benny Safdie"
+    ],
+    "productionCompany": [
+      "Elara Pictures",
+      "IAC Films",
+      "Sikelia Productions"
+    ],
+    "country": [
+      "United States"
+    ],
+    "language": "English",
+    "yearOfRelease": 2019,
+    "budget": "\u003c $20 million"
+  },
+  {
+    "title": "Jurassic World: Fallen Kingdom",
+    "genre": "Action",
+    "runningTime": 128,
+    "starring": [
+      "Chris Pratt",
+      "Bryce Dallas Howard",
+      "Rafe Spall",
+      "Toby Jones",
+      "Ted Levine",
+      "BD Wong",
+      "Jeff Goldblum"
+    ],
+    "directedBy": [
+      "J.A. Bayona"
+    ],
+    "producedBy": [
+      "Frank Marshall",
+      "Patrick Crowley",
+      "Belen Atienza"
+    ],
+    "writtenBy": [
+      "Derek Connolloy",
+      "Colon Trevorrow"
+    ],
+    "productionCompany": [
+      "Amblin Entertainment",
+      "Legendary Pictures",
+      "Perfect World Pictures",
+      "The Kennedy/Marshall Company"
+    ],
+    "country": [
+      "United States"
+    ],
+    "language": "English",
+    "yearOfRelease": 2018,
+    "budget": "$170 - 187 million"
+  }
+]

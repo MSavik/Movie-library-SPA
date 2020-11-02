@@ -1,0 +1,22 @@
+.list-item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.list-item > button {
+    position: relative;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.list-item > span {
+    position: relative;
+    margin-left: 10px;
+}

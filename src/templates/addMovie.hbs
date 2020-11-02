@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Library</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addMovie.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Main page </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addMovie">Add movie <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/modifyMovie">Modify movie <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr>
+    <h1>Add Movie</h1>
+    <label for="inputTitle">Title: </label><input type="text" id="inputTitle" name="inputTitle"><br>
+    <label for="inputGenre">Genre: </label><input type="text" id="inputGenre" name="inputGenre"><br>
+    <label for="inputRunningTime">Running time: </label><input type="number" id="inputRunningTime" name="inputRunningTime" min="0">min<br>
+    <label for="inputYearOfRelease">Year of release: </label><input type="number" id="inputYearOfRelease" name="inputYearOfRelease" min="0"><br>
+    <hr>
+    <label for="inputStarring">Starring: </label><input type="text" id="inputStarring"><button id="btnStarring">Add Actor</button><br>
+    <div id="starringList"></div>
+    <label for="inputDirectedBy">Directed by: </label><input type="text" id="inputDirectedBy"><button id="btnDirectedBy">Add Director</button><br>
+    <div id="directedByList"></div>
+    <label for="inputProducedBy">Produced by: </label><input type="text" id="inputProducedBy"><button id="btnProducedBy">Add Producer</button><br>
+    <div id="producedByList"></div>
+    <label for="inputWrittenBy">Written by: </label><input type="text" id="inputWrittenBy"><button id="btnWrittenBy">Add Writer</button><br>
+    <div id="writtenByList"></div>
+    <hr>
+    <label for="inputProductionCompany">Production company: </label><input type="text" id="inputProductionCompany"><button id="btnProductionCompany">Add Production Company</button><br>
+    <div id="productionCompanyList"></div>
+    <label for="inputCountry">Country: </label><input type="text" id="inputCountry"><button id="btnCountry">Add Country</button><br>
+    <div id="countryList"></div>
+    <label for="inputLanguage">Language: </label><input type="text" id="inputLanguage" name="inputLanguage"><br>
+    <label for="inputBudget">Budget: </label><input type="text" id="inputBudget" name="inputBudget"><br>
+    <br><br>
+    <button id="btnAddMovie" onclick="addMovie()">Add Movie</button>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        let inputTitle = document.querySelector('#inputTitle');
+        let inputGenre = document.querySelector('#inputGenre');
+        let inputRunningTime = document.querySelector('#inputRunningTime');
+        let inputYearOfRelease = document.querySelector('#inputYearOfRelease');
+
+        let inputStarring = document.querySelector('#inputStarring');
+        let btnStarring = document.querySelector('#btnStarring');
+        let inputDirectedBy = document.querySelector('#inputDirectedBy');
+        let btnDirectedBy = document.querySelector('#btnDirectedBy');
+        let inputProducedBy = document.querySelector('#inputProducedBy');
+        let btnProducedBy = document.querySelector('#btnProducedBy');
+        let inputWrittenBy = document.querySelector('#inputWrittenBy');
+        let btnWrittenBy = document.querySelector('#btnWrittenBy');
+
+        let inputProductionCompany = document.querySelector('#inputProductionCompany');
+        let btnProductionCompany = document.querySelector('#btnProductionCompany');
+        let inputCountry = document.querySelector('#inputCountry');
+        let btnCountry = document.querySelector('#btnCountry');
+        let inputLanguage = document.querySelector('#inputLanguage');
+        let inputBudget = document.querySelector('#inputBudget');
+
+        btnStarring.addEventListener('click', function () {
+            document.querySelector('#starringList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="starringListItem">${inputStarring.value}</span></p>`;
+            inputStarring.value = "";
+        });
+        btnDirectedBy.addEventListener('click', function () {
+            document.querySelector('#directedByList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="directedByListItem">${inputDirectedBy.value}</span></p>`;
+            inputDirectedBy.value = "";
+        });
+        btnProducedBy.addEventListener('click', function () {
+            document.querySelector('#producedByList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="producedByListItem">${inputProducedBy.value}</span></p>`;
+            inputProducedBy.value = "";
+        });
+        btnWrittenBy.addEventListener('click', function () {
+            document.querySelector('#writtenByList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="writtenByListItem">${inputWrittenBy.value}</span></p>`;
+            inputWrittenBy.value = "";
+        });
+        btnProductionCompany.addEventListener('click', function () {
+            document.querySelector('#productionCompanyList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="productionCompanyListItem">${inputProductionCompany.value}</span></p>`;
+            inputProductionCompany.value = "";
+        });
+        btnCountry.addEventListener('click', function () {
+            document.querySelector('#countryList').innerHTML += `<p class="list-item"><button onclick="removeElement(this)">X</button><span class="countryListItem">${inputCountry.value}</span></p>`;
+            inputCountry.value = "";
+        });
+
+        function removeElement(el) {
+            el.parentNode.outerHTML = "";
+        }
+        function makeArrayWithInnerHtml(array) {
+            let newArray = [];
+            for (let i = 0; i < array.length; i++){
+                newArray.push(array[i].innerHTML);
+            }
+            return newArray;
+        }
+        function addMovie() {
+
+            let starringArray = makeArrayWithInnerHtml(document.querySelectorAll('.starringListItem'));
+            let directedByArray = makeArrayWithInnerHtml(document.querySelectorAll('.directedByListItem'));
+            let producedByArray = makeArrayWithInnerHtml(document.querySelectorAll('.producedByListItem'));
+            let writtenByArray = makeArrayWithInnerHtml(document.querySelectorAll('.writtenByListItem'));
+            let productionCompanyArray = makeArrayWithInnerHtml(document.querySelectorAll('.productionCompanyListItem'));
+            let countryArray = makeArrayWithInnerHtml(document.querySelectorAll('.countryListItem'));
+
+            $.ajax({
+                url: "/api/addNewMovie",
+                method: "POST",
+                data: {
+                    "inputTitle": inputTitle.value,
+                    "inputGenre": inputGenre.value,
+                    "inputRunningTime": inputRunningTime.value,
+                    "inputYearOfRelease": inputYearOfRelease.value,
+                    "starringArray": JSON.stringify(starringArray),
+                    "directedByArray": JSON.stringify(directedByArray),
+                    "producedByArray": JSON.stringify(producedByArray),
+                    "writtenByArray": JSON.stringify(writtenByArray),
+                    "productionCompanyArray": JSON.stringify(productionCompanyArray),
+                    "countryArray": JSON.stringify(countryArray),
+                    "inputLanguage": inputLanguage.value,
+                    "inputBudget": inputBudget.value
+                },
+                success:function(response) {
+                    alert("New movie added successfully.");
+                }
+            });
+
+            document.querySelectorAll('input').value = "";
+        }
+    </script>
+
+</body>
+</html>
